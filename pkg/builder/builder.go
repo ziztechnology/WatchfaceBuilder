@@ -42,14 +42,14 @@ type BuildOptions struct {
 
 // BuildResult contains the result of a build
 type BuildResult struct {
-	Success   bool              // Build success
-	ZipPath   string            // Path to generated ZIP file
-	FileHash  string            // SHA256 hash of ZIP file
-	Size      int64             // ZIP file size in bytes
-	FileCount int               // Number of files in package
-	Files     []string          // List of files in package
-	Manifest  string            // manifest.json content
-	Error     string            // Error message if failed
+	Success   bool                   // Build success
+	ZipPath   string                 // Path to generated ZIP file
+	FileHash  string                 // SHA256 hash of ZIP file
+	Size      int64                  // ZIP file size in bytes
+	FileCount int                    // Number of files in package
+	Files     []string               // List of files in package
+	Manifest  string                 // manifest.json content
+	Error     string                 // Error message if failed
 	Metadata  map[string]interface{} // Additional metadata
 }
 
@@ -79,7 +79,9 @@ func (b *Builder) Build(options BuildOptions) (*BuildResult, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to create temp directory: %w", err)
 	}
-	defer os.RemoveAll(tempDir)
+	defer func(path string) {
+		_ = os.RemoveAll(path)
+	}(tempDir)
 
 	// Generate files based on template
 	files, err := b.generateTemplateFiles(options)
@@ -249,7 +251,9 @@ func (b *Builder) generatePreviewImage(outputPath, name, template string) error 
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func(file *os.File) {
+		_ = file.Close()
+	}(file)
 
 	img := dc.Image()
 	return png.Encode(file, img)
@@ -261,10 +265,14 @@ func (b *Builder) createZip(sourceDir, zipPath string, files []string) error {
 	if err != nil {
 		return err
 	}
-	defer zipFile.Close()
+	defer func(zipFile *os.File) {
+		_ = zipFile.Close()
+	}(zipFile)
 
 	zipWriter := zip.NewWriter(zipFile)
-	defer zipWriter.Close()
+	defer func(zipWriter *zip.Writer) {
+		_ = zipWriter.Close()
+	}(zipWriter)
 
 	for _, fileName := range files {
 		filePath := filepath.Join(sourceDir, fileName)
@@ -304,7 +312,9 @@ func calculateFileHash(filePath string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	defer file.Close()
+	defer func(file *os.File) {
+		_ = file.Close()
+	}(file)
 
 	hash := sha256.New()
 	if _, err := io.Copy(hash, file); err != nil {

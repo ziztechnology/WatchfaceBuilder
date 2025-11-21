@@ -73,12 +73,12 @@ Examples:
 	rootCmd.Flags().StringVar(&customJSFile, "custom-js-file", "", "Custom JS file path")
 
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 		os.Exit(1)
 	}
 }
 
-func runBuild(cmd *cobra.Command, args []string) {
+func runBuild(cmd *cobra.Command, _ []string) {
 	printBanner()
 
 	// List templates mode
@@ -98,7 +98,7 @@ func runBuild(cmd *cobra.Command, args []string) {
 		fmt.Println("❌ Error: Watchface name is required")
 		fmt.Println()
 		fmt.Println("Usage:")
-		cmd.Help()
+		_ = cmd.Help()
 		fmt.Println()
 		fmt.Println("Quick start:")
 		fmt.Println("  watchface-builder -name \"My Watchface\"")
@@ -272,8 +272,7 @@ func printBanner() {
 ║   Watchface Builder - 表盘包创建器                    ║
 ║   Quickly generate H5 watchface packages              ║
 ║   快速生成 H5 表盘包                                  ║
-╚═══════════════════════════════════════════════════════╝
-`
+╚═══════════════════════════════════════════════════════╝`
 	fmt.Println(banner)
 }
 
