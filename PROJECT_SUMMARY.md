@@ -265,8 +265,8 @@ MIT License - 开源免费使用
 
 ## 支持
 
-- 🐛 [报告问题](https://github.com/Toooony/WatchfaceBuilder/issues)
-- 💬 [讨论](https://github.com/Toooony/WatchfaceBuilder/discussions)
+- 🐛 [报告问题](https://github.com/ziztechnology/WatchfaceBuilder/issues)
+- 💬 [讨论](https://github.com/ziztechnology/WatchfaceBuilder/discussions)
 - 📖 [文档](docs/)
 
 ---

@@ -22,12 +22,12 @@
 
 ### 预编译二进制文件
 
-从 [Releases](https://github.com/Toooony/WatchfaceBuilder/releases) 下载最新版本。
+从 [Releases](https://github.com/ziztechnology/WatchfaceBuilder/releases) 下载最新版本。
 
 ### 从源码构建
 
 ```bash
-git clone https://github.com/Toooony/WatchfaceBuilder.git
+git clone https://github.com/ziztechnology/WatchfaceBuilder.git
 cd WatchfaceBuilder
 go build -o watchface-builder ./cmd/cli
 ```
@@ -206,8 +206,8 @@ done
 
 ## 📞 支持
 
-- 🐛 [报告问题](https://github.com/Toooony/WatchfaceBuilder/issues)
-- 💬 [讨论](https://github.com/Toooony/WatchfaceBuilder/discussions)
+- 🐛 [报告问题](https://github.com/ziztechnology/WatchfaceBuilder/issues)
+- 💬 [讨论](https://github.com/ziztechnology/WatchfaceBuilder/discussions)
 - 📖 [文档](docs/)
 
 ## 🗺️ 路线图

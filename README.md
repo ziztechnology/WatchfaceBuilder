@@ -22,12 +22,12 @@
 
 ### Pre-built Binaries
 
-Download the latest release from [Releases](https://github.com/Toooony/WatchfaceBuilder/releases).
+Download the latest release from [Releases](https://github.com/ziztechnology/WatchfaceBuilder/releases).
 
 ### Build from Source
 
 ```bash
-git clone https://github.com/Toooony/WatchfaceBuilder.git
+git clone https://github.com/ziztechnology/WatchfaceBuilder.git
 cd WatchfaceBuilder
 go build -o watchface-builder ./cmd/cli
 ```
@@ -206,8 +206,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 🐛 [Report Issues](https://github.com/Toooony/WatchfaceBuilder/issues)
-- 💬 [Discussions](https://github.com/Toooony/WatchfaceBuilder/discussions)
+- 🐛 [Report Issues](https://github.com/ziztechnology/WatchfaceBuilder/issues)
+- 💬 [Discussions](https://github.com/ziztechnology/WatchfaceBuilder/discussions)
 - 📖 [Documentation](docs/)
 
 ## 🗺️ Roadmap

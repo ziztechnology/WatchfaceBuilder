@@ -7,27 +7,27 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Toooony/WatchfaceBuilder/pkg/builder"
 	"github.com/spf13/cobra"
+	"github.com/ziztechnology/WatchfaceBuilder/pkg/builder"
 )
 
 var (
-	name            string
-	version         string
-	author          string
-	description     string
-	template        string
-	tags            string
-	output          string
-	noPreview       bool
-	interactive     bool
-	listTemplates   bool
-	customHTML      string
-	customCSS       string
-	customJS        string
-	customHTMLFile  string
-	customCSSFile   string
-	customJSFile    string
+	name           string
+	version        string
+	author         string
+	description    string
+	template       string
+	tags           string
+	output         string
+	noPreview      bool
+	interactive    bool
+	listTemplates  bool
+	customHTML     string
+	customCSS      string
+	customJS       string
+	customHTMLFile string
+	customCSSFile  string
+	customJSFile   string
 )
 
 func main() {
