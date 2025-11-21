@@ -6,7 +6,7 @@ Get started with Watchface Builder in 5 minutes!
 
 ### Option 1: Download Pre-built Binary (Recommended)
 
-1. Go to [Releases](https://github.com/Toooony/WatchfaceBuilder/releases)
+1. Go to [Releases](https://github.com/ziztechnology/WatchfaceBuilder/releases)
 2. Download the binary for your platform:
    - Windows: `watchface-builder-windows-amd64.exe`
    - macOS: `watchface-builder-darwin-amd64`
@@ -19,7 +19,7 @@ Get started with Watchface Builder in 5 minutes!
 ### Option 2: Build from Source
 
 ```bash
-git clone https://github.com/Toooony/WatchfaceBuilder.git
+git clone https://github.com/ziztechnology/WatchfaceBuilder.git
 cd WatchfaceBuilder
 go build -o watchface-builder ./cmd/cli
 ```
@@ -267,8 +267,8 @@ fswatch -o mytemplate.html | xargs -n1 -I{} ./watchface-builder \
 ## Getting Help
 
 - 📖 [Full Documentation](../README.md)
-- 🐛 [Report Issues](https://github.com/Toooony/WatchfaceBuilder/issues)
-- 💬 [Discussions](https://github.com/Toooony/WatchfaceBuilder/discussions)
+- 🐛 [Report Issues](https://github.com/ziztechnology/WatchfaceBuilder/issues)
+- 💬 [Discussions](https://github.com/ziztechnology/WatchfaceBuilder/discussions)
 
 ## What's Next?
 

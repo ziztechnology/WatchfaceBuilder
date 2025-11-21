@@ -1,0 +1,108 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Get version
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Build for all platforms
+        run: |
+          mkdir -p build
+
+          # Linux AMD64
+          GOOS=linux GOARCH=amd64 go build -ldflags "-X main.Version=${{ steps.version.outputs.VERSION }}" -o build/watchface-builder-linux-amd64 ./cmd/cli
+
+          # macOS AMD64
+          GOOS=darwin GOARCH=amd64 go build -ldflags "-X main.Version=${{ steps.version.outputs.VERSION }}" -o build/watchface-builder-darwin-amd64 ./cmd/cli
+
+          # macOS ARM64
+          GOOS=darwin GOARCH=arm64 go build -ldflags "-X main.Version=${{ steps.version.outputs.VERSION }}" -o build/watchface-builder-darwin-arm64 ./cmd/cli
+
+          # Windows AMD64
+          GOOS=windows GOARCH=amd64 go build -ldflags "-X main.Version=${{ steps.version.outputs.VERSION }}" -o build/watchface-builder-windows-amd64.exe ./cmd/cli
+
+      - name: Create release archives
+        run: |
+          cd build
+
+          # Linux
+          tar -czf watchface-builder-${{ steps.version.outputs.VERSION }}-linux-amd64.tar.gz watchface-builder-linux-amd64
+
+          # macOS AMD64
+          tar -czf watchface-builder-${{ steps.version.outputs.VERSION }}-darwin-amd64.tar.gz watchface-builder-darwin-amd64
+
+          # macOS ARM64
+          tar -czf watchface-builder-${{ steps.version.outputs.VERSION }}-darwin-arm64.tar.gz watchface-builder-darwin-arm64
+
+          # Windows
+          zip watchface-builder-${{ steps.version.outputs.VERSION }}-windows-amd64.zip watchface-builder-windows-amd64.exe
+
+      - name: Generate checksums
+        run: |
+          cd build
+          sha256sum *.tar.gz *.zip > checksums.txt
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build/*.tar.gz
+            build/*.zip
+            build/checksums.txt
+          body: |
+            ## Watchface Builder ${{ steps.version.outputs.VERSION }}
+
+            ### Installation
+
+            Download the binary for your platform:
+            - **Linux**: `watchface-builder-${{ steps.version.outputs.VERSION }}-linux-amd64.tar.gz`
+            - **macOS (Intel)**: `watchface-builder-${{ steps.version.outputs.VERSION }}-darwin-amd64.tar.gz`
+            - **macOS (Apple Silicon)**: `watchface-builder-${{ steps.version.outputs.VERSION }}-darwin-arm64.tar.gz`
+            - **Windows**: `watchface-builder-${{ steps.version.outputs.VERSION }}-windows-amd64.zip`
+
+            ### Quick Start
+
+            ```bash
+            # Extract (Linux/macOS)
+            tar -xzf watchface-builder-*.tar.gz
+
+            # Make executable (Linux/macOS)
+            chmod +x watchface-builder-*
+
+            # Run interactive mode
+            ./watchface-builder -i
+            ```
+
+            ### Documentation
+
+            - [Quick Start Guide](docs/QUICKSTART.md)
+            - [README](README.md)
+            - [中文文档](README_zh.md)
+
+            ### Checksums
+
+            See `checksums.txt` for SHA256 checksums of all binaries.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

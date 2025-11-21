@@ -1,4 +1,4 @@
-module github.com/Toooony/WatchfaceBuilder
+module github.com/ziztechnology/WatchfaceBuilder
 
 go 1.21
 

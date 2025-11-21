@@ -10,7 +10,7 @@ Please be respectful and constructive in all interactions with the project.
 
 ### Reporting Bugs
 
-1. Check if the bug has already been reported in [Issues](https://github.com/Toooony/WatchfaceBuilder/issues)
+1. Check if the bug has already been reported in [Issues](https://github.com/ziztechnology/WatchfaceBuilder/issues)
 2. If not, create a new issue with:
    - Clear title and description
    - Steps to reproduce
@@ -19,7 +19,7 @@ Please be respectful and constructive in all interactions with the project.
 
 ### Suggesting Features
 
-1. Check if the feature has been suggested in [Issues](https://github.com/Toooony/WatchfaceBuilder/issues)
+1. Check if the feature has been suggested in [Issues](https://github.com/ziztechnology/WatchfaceBuilder/issues)
 2. Create a new issue with:
    - Clear description of the feature
    - Use cases and benefits
@@ -60,7 +60,7 @@ git clone https://github.com/YOUR_USERNAME/WatchfaceBuilder.git
 cd WatchfaceBuilder
 
 # Add upstream remote
-git remote add upstream https://github.com/Toooony/WatchfaceBuilder.git
+git remote add upstream https://github.com/ziztechnology/WatchfaceBuilder.git
 
 # Install dependencies
 go mod download
@@ -200,9 +200,9 @@ docs(readme): update installation instructions
 
 ## Getting Help
 
-- 💬 [Discussions](https://github.com/Toooony/WatchfaceBuilder/discussions) - Ask questions
+- 💬 [Discussions](https://github.com/ziztechnology/WatchfaceBuilder/discussions) - Ask questions
 - 📖 [Documentation](docs/) - Read the docs
-- 🐛 [Issues](https://github.com/Toooony/WatchfaceBuilder/issues) - Report bugs
+- 🐛 [Issues](https://github.com/ziztechnology/WatchfaceBuilder/issues) - Report bugs
 
 ## Recognition
 

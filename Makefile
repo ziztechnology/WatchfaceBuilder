@@ -82,6 +82,6 @@ run: build ## Build and run
 
 example: build ## Build an example watchface
 	@echo "Building example watchface..."
-	@./$(BINARY_NAME) --name "Example Watchface" --template simple --author "Toooony"
+	@./$(BINARY_NAME) --name "Example Watchface" --template simple --author "ziztechnology"
 
 .DEFAULT_GOAL := help

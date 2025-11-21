@@ -6,7 +6,7 @@
   --name "Simple Clock Example" \
   --template simple \
   --version 1.0.0 \
-  --author "Toooony" \
+  --author "ziztechnology" \
   --description "A minimalist digital clock with gradient background" \
   --tags "simple,minimalist,gradient" \
   --output ./
