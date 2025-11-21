@@ -1,0 +1,47 @@
+# Binaries
+watchface-builder
+watchface-builder.exe
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.txt
+
+# Build artifacts
+dist/
+build/
+bin/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Generated watchfaces
+*.zip
+temp/
+output/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Go
+vendor/
+go.work
+go.work.sum
+
+# OS
+Thumbs.db
