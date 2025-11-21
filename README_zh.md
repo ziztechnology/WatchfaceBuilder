@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README_zh.md)
 
-🎨 为 WebView 套壳智能手表快速生成 H5 表盘包的懒人工具
+🎨 为 WebView 智能周边 toooony 快速生成 H5 表盘包的懒人工具
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)

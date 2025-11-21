@@ -2,7 +2,7 @@
 
 [English](README.md) | [中文](README_zh.md)
 
-🎨 A lazy-friendly tool to quickly generate H5 watchface packages for WebView-based smartwatches.
+🎨 A lazy-friendly tool to quickly generate H5 watchface packages for WebView-based toooony.
 
 [![Go Version](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
